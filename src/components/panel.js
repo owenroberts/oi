@@ -9,7 +9,10 @@ export class UIPanel extends UICollection {
 		this.addClass("panel");
 		this.rows = [];
 
-		const header = this.append(new UIRow({ class: "header" }));
+		const header = this.append(new UIRow({
+			// class: "header",
+			tag: "header",
+		}));
 
 		header.add(new UILabel({ text: params.label ?? params.id }));
 

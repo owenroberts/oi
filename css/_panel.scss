@@ -75,7 +75,7 @@
 		flex-basis: 100%;
 	}
 
-	.header {
+	header {
 		flex-wrap: nowrap;
 		flex-basis: 100%;
 
@@ -127,7 +127,7 @@
 			margin-right: 3px;
 			@include horizontal-scroll;
 
-			&.header { overflow: initial; }
+			&header { overflow: initial; }
 		}
 
 		.row button {
@@ -138,17 +138,15 @@
 			margin-right: 3px;
 		}
 
-		.header {
+		header {
 			margin-bottom: 0;
 			height: 12px;
 			margin-right: 0;
 			align-items: unset;
 
-			button.toggle, 
 			div.order, 
-			button.undock, 
-			button.block {
-				display: none;
+			button.undock {
+				display: none !important;
 			}
 
 			label {

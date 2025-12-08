@@ -1,5 +1,6 @@
 import { UIText, formatNumberInput } from '../oi.js';
 
+// needs update for obj/ref
 export class UINumber extends UIText {
 	constructor(params) {
 		super(params);

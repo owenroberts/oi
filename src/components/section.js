@@ -2,13 +2,14 @@ import { UICollection, UIElement, UISelectButton, UILabel, UINumber, UINumberSte
 
 export class UISection extends UICollection {
 	constructor(params) {
-		super(params);
+		super({ ...params, tag: "section" });
 
 		this.ui = params.ui;
 		this.label = params.label;
-		this.addClass('section');
+		// this.addClass('section');
 
-		const header = this.add(new UICollection({ 
+		const header = this.add(new UICollection({
+			tag: "header",
 			id: params.id + '-header',
 			class: 'section-header',
 		}));

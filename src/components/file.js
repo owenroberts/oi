@@ -5,9 +5,9 @@ export class UIFile extends UIElement {
 		super({ ...params, tag: 'button' });
 
 		this.callback = params.callback;
-		this.multiple = params.multiple || false;
+		this.multiple = params.multiple ?? false;
 		this.promptDefault = params.promptDefault;
-		this.fileType = params.fileType || 'application/json';
+		this.fileType = params.fileType ?? 'application/json';
 
 		this.el.addEventListener('click', () => {
 			this.keyHandler();

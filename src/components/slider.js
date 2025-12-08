@@ -1,5 +1,6 @@
 import { UIInput } from '../oi.js';
 
+// udpate for obj/ref
 export class UISlider extends UIInput {
 	constructor(params) {
 		super(params);

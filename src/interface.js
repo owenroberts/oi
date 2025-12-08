@@ -122,7 +122,7 @@ export class Interface {
 		
 		this.sections[key] = this.container.add(new UISection({
 			label: key,
-			id: `${key}-section`, 
+			id: key,
 			ui: this,
 		}));
 		this.sections[key].addSelectorOptions(Object.keys(this.panels));

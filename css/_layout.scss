@@ -8,13 +8,13 @@
 	flex-wrap: wrap;
 }
 
-.section {
+section {
 
 	--width: 100;
 	width: calc(var(--width) * 1% - 1px);
 	order: 0;
 
-	.section-header {
+	header.section-header {
 		background: $border-color;
 		// border: 2px solid #c1c1ff;
 		border-top-right-radius: 0.5em;
@@ -80,7 +80,7 @@
 		font-size: calc(var(--quick-ref-font-size) * 1px);
 	}
 
-	.header {
+	header {
 		font-size: inherit;
 	}
 }

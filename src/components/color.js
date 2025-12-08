@@ -1,5 +1,6 @@
 import { UIInput, UIButton, UICollection } from '../oi.js';
 
+// needs update for obj/ref
 export class UIColor extends UIInput {
 	constructor(params) {
 		super(params);

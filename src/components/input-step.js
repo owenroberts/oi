@@ -10,6 +10,7 @@ export class UIInputStep extends UICollection {
 		this.options = params.options ?? [];
 
 		this.index = 0;
+		
 		if (this.obj && this.ref) {
 			this.index = params.options.indexOf(this.obj[this.ref]);			
 		} else if (params.value) {
@@ -61,14 +62,14 @@ export class UIInputStep extends UICollection {
 	}
 
 	set value(value) {
-		if (this.obj && this.ref) this.obj[this.ref] = value;
 		this.textInput.value = value;
+		if (this.obj && this.ref) this.obj[this.ref] = value;
 		if (this.callback) this.callback(value);
 	}
 
 	update() {
-		if (this.obj && this.ref) this.obj[this.ref] = this.options[this.index];
 		this.textInput.value = this.options[this.index];
+		if (this.obj && this.ref) this.obj[this.ref] = this.options[this.index];
 		if (this.callback) this.callback(this.value);
 	}
 }

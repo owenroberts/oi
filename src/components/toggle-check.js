@@ -21,8 +21,6 @@ export class UIToggleCheck extends UICollection {
 		});
 	}
 
-	/* get set more consistent, maybe chance later ... */
-
 	get value() {
 		return this.check.el.checked;
 	}
