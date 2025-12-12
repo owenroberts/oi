@@ -20,7 +20,8 @@ export class UIModal extends UICollection {
 				this.clear();
 			}
 		}));
-		params.ui.addKey("enter", submit);
+
+		params.ui.addKey("enter", { text: "modal submit" }, submit);
 
 		const cancel = this.append(new UIButton({
 			text: "x",
@@ -31,7 +32,9 @@ export class UIModal extends UICollection {
 				this.clear();
 			}
 		}));
-		params.ui.addKey("escape", cancel);
+
+		params.ui.addKey("escape", { text: "modal escape" }, cancel);
+		
 		this.addBreak();
 
 		let x = Math.max(16, params.ui.mousePosition.x - 100);

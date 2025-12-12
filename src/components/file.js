@@ -17,19 +17,18 @@ export class UIFile extends UIElement {
 	/* bc button doesn't have an update func */
 	keyHandler() {
 		const { callback, promptDefault, multiple, fileType } = this;
-		
 		function readFile(files, directoryPath) {
 			for (let i = 0, f; f = files[i]; i++) {
 				if (!f.type.match(fileType)) continue;
 				const reader = new FileReader();
 				reader.onload = (function(theFile) {
 					return function(e) {
-						const filePath = '/' + directoryPath + '/' + f.name;
+						// const filePath = '/' + directoryPath + '/' + f.name;
 						const fileName = f.name.split('.')[0];
 						let data;
 						if (fileType === 'application/json') data = JSON.parse(e.target.result);
 						else data = e.target.result;
-						callback(data, fileName, filePath);
+						callback(data, fileName);
 					};
 				})(f);
 				reader.readAsText(f);
@@ -41,8 +40,8 @@ export class UIFile extends UIElement {
 		openFile.multiple = multiple;
 		openFile.click();
 		openFile.onchange = function() {
-			let directoryPath = prompt('Directory?', promptDefault);
-			readFile(openFile.files, directoryPath);
+			// let directoryPath = prompt('Directory?', promptDefault);
+			readFile(openFile.files);
 		};
 	}
 }

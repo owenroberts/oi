@@ -72,7 +72,7 @@ export class UINumberStep extends UICollection {
 
 		if (value === undefined || value === null || value === '') {
 			console.trace();
-			return alert('No value entered.');
+			throw Error("no value entered");
 		} else {
 			value = +value;
 		}
@@ -82,6 +82,8 @@ export class UINumberStep extends UICollection {
 		
 		this.value = formatNumberInput(value);
 		this.numberInput.value = this.value;
+
+		if (uiOnly) return;
 		
 		if (this.obj && this.ref) this.obj[this.ref] = this.value;
 		if (this.callback) this.callback(this.value);

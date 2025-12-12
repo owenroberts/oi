@@ -150,10 +150,12 @@ export class Interface {
 	}
 
 	getComponentType(params) {
-		const value = params.value ?? params.obj[params.ref]
+		const value = params.value ?? params.obj[params.ref];
+		
 		// options is either select or steppers
 		if (params.options) {
-			if (typeof value[0] === 'string') return 'UISelect';
+			if (params.options?.[0] === "C_1") return "UIInputStep";
+			if (typeof value[0] === 'string') return "UISelect";
 		} else {
 			if (typeof value === 'string') return 'UIText';
 			if (typeof value === 'number') return 'UINumberStep';
@@ -181,7 +183,9 @@ export class Interface {
 
 	addButton(panel, params) {
 		if (params.addRow) panel.addRow();
-		const component = panel.add(new Components.UIButton(params));
+		const component = params.isFile ?
+			panel.add(new Components.UIFile(params)) :
+			panel.add(new Components.UIButton(params));
 		if (params.key) this.addKey(params.key, params, component);
 		this.quick.register(component, panel.id, params);
 		return component;

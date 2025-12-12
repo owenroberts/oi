@@ -37,7 +37,6 @@ export class UICollection extends UIElement {
 	}
 
 	remove(child, k) {
-		// if (k) delete this[k];
 		if (k) delete this.children[k];
 		const removeIndex = this.childList.indexOf(child);
 		this.childList.splice(removeIndex, 1);

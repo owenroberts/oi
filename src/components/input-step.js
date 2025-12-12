@@ -29,8 +29,8 @@ export class UIInputStep extends UICollection {
 				this.update();
 			},
 			callback: value => {
+				this.value = value;
 				this.update();
-				// this.update(this.value); // handle mis types on app end
 			}
 		}));
 
@@ -40,6 +40,7 @@ export class UIInputStep extends UICollection {
 			text: '▼',
 			class: 'middle',
 			callback: () => {
+				if (this.ref === "tonic") console.log(this)
 				if (this.index === 0) return; 
 				this.index -= 1;
 				this.update();
@@ -62,9 +63,12 @@ export class UIInputStep extends UICollection {
 	}
 
 	set value(value) {
-		this.textInput.value = value;
-		if (this.obj && this.ref) this.obj[this.ref] = value;
-		if (this.callback) this.callback(value);
+		let index = this.options.indexOf(value);
+		if (index === -1) {
+			console.warn(`value ${value} not in options for ${this.ref}`);
+		}
+		this.index = index;
+		this.textInput.value = this.options[this.index];
 	}
 
 	update() {

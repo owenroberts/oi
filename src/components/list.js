@@ -62,7 +62,10 @@ export class UIList extends UICollection {
 			this.addBreak();
 		}
 
-		this.tree = this.add(new UITree({ title: params.treeTitle ?? "items", isOpen: true }));
+		this.tree = this.add(new UITree({ 
+			title: params.treeTitle ?? "items", 
+			isOpen: params.isListItemsOpen ?? true,
+		}));
 		this.addItemUIs();
 	}
 

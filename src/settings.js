@@ -23,9 +23,8 @@ export class Settings {
 
 	loadFaces(faces) {
 		for (const f in faces) {
-			if (f === 'palettes') continue;
-			if (f === 'quickRef') continue;
 			if (!this.ui.faces[f]) continue;
+			if (this.ui.faces[f].ignoreSettings) continue;
 			this.ui.faces[f].update(faces[f]);
 		}
 	}
