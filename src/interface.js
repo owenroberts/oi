@@ -64,6 +64,8 @@ export class Interface {
 			this.mousePosition.x = ev.clientX;
 			this.mousePosition.y = ev.clientY;
 		}, false);
+
+		this.activeModal = undefined; // track existing modal
 	}
 
 	keyDown(ev) {
@@ -107,7 +109,7 @@ export class Interface {
 		if (triggerRelease === true) {
 			setTimeout(() => { 
 				this.onKeyRelease(component);
-			}, 400);
+			}, 1000);
 		}
 	}
 
@@ -151,14 +153,18 @@ export class Interface {
 
 	getComponentType(params) {
 		const value = params.value ?? params.obj[params.ref];
-		
+
 		// options is either select or steppers
 		if (params.options) {
 			if (params.options?.[0] === "C_1") return "UIInputStep";
-			if (typeof value[0] === 'string') return "UISelect";
+			// if (typeof params.options[0] === "string") return "UISelect";
+			return "UISelect";
 		} else {
 			if (typeof value === 'string') return 'UIText';
-			if (typeof value === 'number') return 'UINumberStep';
+			if (typeof value === 'number') {
+				if (params.range) return "UIRange";
+				return 'UINumberStep';
+			}
 			if (typeof value === 'boolean') return 'UIToggleCheck';
 			if (Array.isArray(value)) return 'UIList';
 		}
@@ -166,14 +172,25 @@ export class Interface {
 	
 	addRef(panel, params) {
 		if (!params.noRow) panel.addRow();
+		
 		const type = params.type ?? this.getComponentType(params);
 		const id = params.id ?? params.ref;
+		
 		const component = new Components[type](params);
-		panel.add(new UILabel({ text: params.label ?? id }));
+		if (!params.noLabel) {
+			panel.add(new UILabel({ text: params.label ?? params.face ?? id }));
+		}
 		panel.add(component, id);
 		if (params.key) {
 			this.addKey(params.key, params, component);
 		}
+
+		// multiple faces? save by panel?
+		if (this.faces[params.face ?? id]) {
+			console.log("existing face", this.faces[params.face ?? id])
+			console.log("this face", params)
+		}
+
 		this.faces[params.face ?? id] = component; // if params.face?
 		if (params.ignoreSettings) component.ignoreSettings = true;
 		this.quick.register(component, panel.id, params);
@@ -181,13 +198,38 @@ export class Interface {
 		return component;
 	}
 
+	addRefs(panel, params, refs) {
+		for (let i = 0; i < refs.length; i++) {
+			this.addRef(panel, { ...params, ...refs[i] });
+		}
+	}
+
 	addButton(panel, params) {
 		if (params.addRow) panel.addRow();
-		const component = params.isFile ?
-			panel.add(new Components.UIFile(params)) :
-			panel.add(new Components.UIButton(params));
+		
+		let type = params.type ?? "UIButton";
+		if (params.isFile) type = "UIFile";
+		if (params.hasOwnProperty("onText")) type = "UIToggle";
+
+		if (params.hasOwnProperty("ref") && !params.hasOwnProperty("text")) {
+			params.text = params.ref;
+		}
+
+		const component = panel.add(new Components[type](params));
 		if (params.key) this.addKey(params.key, params, component);
 		this.quick.register(component, panel.id, params);
 		return component;
+	}
+
+	/**
+	 * multiple buttons with shared params, mainly obj: this
+	 * @param {UIPanel} panel  
+	 * @param {object} 	params  	shared params
+	 * @param {array{}} buttons 	list of button params
+	 */	
+	addButtons(panel, params, buttons) {
+		for (let i = 0; i < buttons.length; i++) {
+			this.addButton(panel, { ...params, ...buttons[i] });
+		}
 	}
 }

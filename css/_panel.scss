@@ -61,6 +61,12 @@
 		flex-wrap: wrap;
 	}
 
+	.ui-collection {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2px;
+	}
+
 	button {
 		transition: background-color 100ms ease-in-out;
 
@@ -75,7 +81,11 @@
 		flex-basis: 100%;
 	}
 
+	header.ui-collection,
 	header {
+
+		
+
 		flex-wrap: nowrap;
 		flex-basis: 100%;
 
@@ -97,6 +107,7 @@
 		div.order {
 			margin-left: auto;
 			align-self: flex-start;
+			flex-wrap: nowrap;
 		}
 
 		button.toggle,
@@ -110,6 +121,8 @@
 			margin-right: 0;
 			align-self: unset;
 		}
+
+		@include horizontal-scroll;
 	}
 
 	&.headless {
@@ -168,9 +181,5 @@
 		}
 	}
 
-	.ui-collection {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 2px;
-	}
+	
 }

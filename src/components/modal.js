@@ -4,12 +4,16 @@ export class UIModal extends UICollection {
 	constructor(params) {
 		super({});
 		this.addClass('modal');
-		if (params.class) this.addClass(params.class);
-		this.append(new UILabel({ text: params.title }));
+		this.ui = params.ui;
 
-		// better way to do this ?? 
-		params.ui.container.append(this);
+		if (this.ui.activeModal) {
+			this.ui.activeModal.clear();
+		}
+
+		this.ui.activeModal = this;
+		this.ui.container.append(this);
 		
+		this.label = this.append(new UILabel({ text: params.title }));
 		this.break = this.append(new UIElement({ class: 'break' }));
 
 		const submit = this.append(new UIButton({
@@ -37,8 +41,32 @@ export class UIModal extends UICollection {
 		
 		this.addBreak();
 
-		let x = Math.max(16, params.ui.mousePosition.x - 100);
-		let y = Math.max(16, params.ui.mousePosition.y - 24);
+		this.setPosition();
+
+		// drag
+		let isDragging = false;
+		this.el.addEventListener('mousedown', ev => {
+			if (ev.target === this.label.el || this.el) {
+				isDragging = true;
+			}
+		});
+
+		this.el.addEventListener('mousemove', ev => {
+			if (isDragging) this.setPosition();
+		});
+
+		this.el.addEventListener('mouseup', ev => {
+			isDragging = false;
+		});
+
+		this.el.addEventListener('mouseleave', ev => {
+			isDragging = false;
+		});
+	}
+
+	setPosition() {
+		let x = Math.max(16, this.ui.mousePosition.x - 100);
+		let y = Math.max(16, this.ui.mousePosition.y - 24);
 
 		this.setStyle('left', `${x}px`);
 		this.setStyle('top', `${y}px`);
@@ -77,6 +105,7 @@ export class UIModal extends UICollection {
 	}
 
 	clear() {
+		this.ui.activeModal = undefined;
 		this.el.remove();
 	}
 }

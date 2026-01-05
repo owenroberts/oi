@@ -1,13 +1,11 @@
 import { UIInput, UIButton, UICollection } from '../oi.js';
 
-// needs update for obj/ref
 export class UIColor extends UIInput {
 	constructor(params) {
 		super(params);
 		
 		this.el.type = "color";
 		this.colors = [];
-		this.args = params.args || [];
 
 		this.el.addEventListener('input', ev => {
 			this.setColor(ev.target.value);
@@ -38,7 +36,8 @@ export class UIColor extends UIInput {
 	/* to set color without constantly updating "current" */
 	setColor(value) {
 		this.current = value;
-		this.callback(value, ...this.args);
+		if (this.obj && this.ref) this.obj[this.ref] = value;
+		if (this.callback) this.callback(value);
 	}
 
 	/* update for loading */
@@ -54,6 +53,6 @@ export class UIColor extends UIInput {
 	set value(value) {
 		this.addColor(value);
 		this.current = value;
-		super.value = value; // super again??
+		this.el.value = value;
 	}
 }

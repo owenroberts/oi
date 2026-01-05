@@ -53,16 +53,20 @@ select {
 	z-index: 99;
 	right: 1em;
 	top: 1em;
-	background: $accent-two;
-	border-radius: 3px;
-	font-size: 1em;
+	background-color: white;
+	// background: $accent-two;
+	// background: linear-gradient($accent-two 25%, $border-color 100%);
+	border-radius: 1em;
+	font-size: 1.125em;
 	color: black;
-	padding: 2px 6px;
+	padding: 0.5em 1em;
 	opacity: 0;
-	transition: opacity 100ms ease-in;
+	transition: opacity 10ms ease-in;
+	border: 0.25em solid $accent-color;
+
 	&.visible {
 		opacity: 1;
-		transition: opacity 400ms ease-out;
+		transition: opacity 20ms ease-out;
 	}
 }
 

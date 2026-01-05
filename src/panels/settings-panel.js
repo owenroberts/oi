@@ -11,21 +11,21 @@ export class SettingsPanel extends UIPanel {
 				settings.save();
 			}, 
 			key: "ctrl-s", 
-			text: 'Save' 
+			text: 'save' 
 		});
 	
 		this.addButton({ 
 			callback: () => {
 				settings.load();
 			}, 
-			text: 'Load' 
+			text: 'load' 
 		});
 
 		this.addButton({ 
 			callback: () => {
 				settings.clear();
 			}, 
-			text: 'Clear' 
+			text: 'clear' 
 		});
 
 	}

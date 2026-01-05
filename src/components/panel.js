@@ -63,6 +63,10 @@ export class UIPanel extends UICollection {
 		// this.addRow();
 	}
 
+	addLabel(text) {
+		this.add(new UILabel({ text }));
+	}
+
 	addRow(params={}) {
 		const row = new UIRow(params);
 		this.append(row, params.id);
@@ -82,8 +86,16 @@ export class UIPanel extends UICollection {
 		return this.ui.addRef(this, params);
 	}
 
+	addRefs(params, refs) {
+		this.ui.addRefs(this, params, refs);
+	}
+
 	addButton(params) {
 		return this.ui.addButton(this, params);
+	}
+
+	addButtons(params, buttons) {
+		this.ui.addButtons(this, params, buttons);
 	}
 
 	add(child, k, row) {

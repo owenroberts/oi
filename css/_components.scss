@@ -1,3 +1,4 @@
+@use "sass:color";
 @use "_colors" as *;
 @use "_mixins" as *;
 
@@ -16,6 +17,7 @@ button {
 	padding: 0 0.5em;
 	border-radius: 3px;
 	
+	&.progress:hover,
 	&:hover {
 		background: $ui-select;
 		cursor: pointer;
@@ -44,9 +46,9 @@ button {
 	&.right-end { @include right-end; }
 }
 
-.panel .row .value-bg {
+.panel .row .range-bg {
 
-	min-width: 8em;
+	min-width: 6em;
 
 	input.drag {
 		border: 0;
@@ -64,14 +66,18 @@ button {
 			// color: $text-color;
 			color: black;
 		}
+		&:focus-visible {
+			background-color: transparent;
+			// border-bottom: 1px solid black;
+		}
 	}
 
 	display: flex;
 	flex-wrap: unset;
 	align-items: baseline;
 	column-gap: 2px;
-	padding: 2px;
-	margin-right: 0.25em;
+	padding: 0 2px;
+	// margin-right: 0.25em;
 	// margin-top: 0.25em;
 
 	border-radius: 3px;
@@ -85,6 +91,7 @@ section header {
 
 	button {
 		padding: 0 0.5em;
+		margin-bottom: 0;
 	}
 		
 	span, 
@@ -209,7 +216,7 @@ section header {
 }
 
 /* toggle */
-.toggle { background-color: $ui-select; }
+.toggle { background-color: color.adjust($border-color, $saturation: -64%, $lightness: -12% ); }
 .on { background-color: $ui-color; }
 
 .modal {
@@ -227,6 +234,7 @@ section header {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 2px;
+	align-items: center;
 
 	.break { flex-basis: 100%; }
 

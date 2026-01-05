@@ -21,11 +21,14 @@
 }
 
 @mixin horizontal-scroll {
+	
 	&::-webkit-scrollbar {
 		display: none;
 	}
+	
 	overflow-x: scroll;
 	overflow-y: hidden;
+	
 	.ui-collection { 
 		display: flex;
 		margin-left: 3px;

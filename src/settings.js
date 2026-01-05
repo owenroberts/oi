@@ -74,7 +74,7 @@ export class Settings {
 	load() {
 		if (localStorage[this.localStorageString]) {
 			const settings = JSON.parse(localStorage[this.localStorageString]);
-			
+
 			this.loadSections(settings.sections);
 			this.loadPanels(settings.panels);
 			this.loadFaces(settings.faces);

@@ -1,16 +1,16 @@
 {
-  "name": "ui",
+  "name": "oi",
   "version": "1.0.0",
-  "description": "ui",
-  "main": "src/UI.js",
+  "description": "owen's interface",
+  "main": "src/oi.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/owenroberts/ui.git"
+    "url": "git+https://github.com/owenroberts/oi.git"
   },
   "author": "owenribbit",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/owenroberts/ui/issues"
+    "url": "https://github.com/owenroberts/oi/issues"
   },
-  "homepage": "https://github.com/owenroberts/ui#readme"
+  "homepage": "https://github.com/owenroberts/oi#readme"
 }

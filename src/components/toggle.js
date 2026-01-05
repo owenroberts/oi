@@ -4,8 +4,8 @@ import { UIElement } from '../oi.js';
 export class UIToggle extends UIElement {
 	constructor(params) {
 		super({ ...params, tag: "button" });
-		this.addClass(params.buttonClass); /* for diff types of button */
 		this.addClass('toggle');
+		if (params.buttonClass) this.addClass(params.buttonClass);
 
 		this.obj = params.obj;
 		this.ref = params.ref;

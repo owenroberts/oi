@@ -1,4 +1,4 @@
-import { UIElement } from '../oi.js';
+import { UIElement, UILabel } from '../oi.js';
 
 export class UICollection extends UIElement {
 	constructor(params) {
@@ -11,8 +11,6 @@ export class UICollection extends UIElement {
 
 	// k is the key value in the interface object
 	append(child, k) {
-		if (this.debug) console.log('append', child);
-		// if (k !== undefined) this[k] = child; // remove this ?? 
 		if (k !== undefined) this.children[k] = child;
 		this.childList.push(child);
 		this.el.appendChild(child.el);
@@ -27,6 +25,7 @@ export class UICollection extends UIElement {
 	}
 
 	// most stuff uses add ...
+	// *** get rid of addBreak
 	add(child, k, addBreak) {
 		if (addBreak) this.addBreak();
 		return this.append(child, k);
@@ -34,6 +33,10 @@ export class UICollection extends UIElement {
 
 	addBreak() {
 		this.add(new UIElement({ class: 'break' }));
+	}
+
+	addLabel(text) {
+		this.add(new UILabel({ text }));
 	}
 
 	remove(child, k) {
