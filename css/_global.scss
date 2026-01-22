@@ -52,17 +52,18 @@ select {
 	position: fixed;
 	z-index: 99;
 	right: 1em;
-	top: 1em;
-	background-color: white;
-	// background: $accent-two;
+	bottom: 1em;
+	// background-color: white;
+	background: $accent-two;
 	// background: linear-gradient($accent-two 25%, $border-color 100%);
 	border-radius: 1em;
-	font-size: 1.125em;
+	font-size: 1em;
 	color: black;
 	padding: 0.5em 1em;
 	opacity: 0;
 	transition: opacity 10ms ease-in;
-	border: 0.25em solid $accent-color;
+	// box-shadow: -3px 3px 0 white;
+	border: 0.25em solid black;
 
 	&.visible {
 		opacity: 1;

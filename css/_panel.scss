@@ -40,7 +40,8 @@
 
 	.row label:first-child,
 	.row .break + label,
-	.row .break-line + label { 
+	.row .break-line + label,
+	.row .left-label { 
 		margin-bottom: 0;
 		margin-right: auto;
 	}

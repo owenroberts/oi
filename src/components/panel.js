@@ -1,6 +1,16 @@
 import { UILabel, UICollection, UIToggle, UIRow, UINumberStep, UIButton } from '../oi.js';
 
+/**
+ * panel for buttons and refs
+ */
 export class UIPanel extends UICollection {
+
+	/**
+	 * creates a panel
+	 * @param  {object} params    - ui params
+	 * @param  {object} params.ui - ui obj
+	 * @param  {string} params.id - html id
+	 */
 	constructor(params) {
 		super({ ...params, id: `${params.id}-panel` });
 		

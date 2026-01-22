@@ -23,8 +23,8 @@ export class UISelect extends UIElement {
 	}
 
 	set value(value) {
-		this.el.value = value;
-		this.el.selected = value;
+		this.el.value = value; /// wtf
+		// this.el.selected = ""+value;
 	}
 
 	get options() {
