@@ -147,7 +147,6 @@ export class Interface {
 		const label = labelFromKey(panel.id);
 		this.panels[panel.id] = panel;
 		this.addSectionPanelOption(panel.id, label);
-		// this.layout.addSelectOption(panel.id, label);
 		return panel;
 	}
 

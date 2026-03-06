@@ -4,7 +4,10 @@ export class UIModal extends UICollection {
 	constructor(params) {
 		super({});
 		this.addClass('modal');
+		
 		this.ui = params.ui;
+		this.callback = params.callback;
+		this.onClear = params.onClear;
 
 		if (this.ui.activeModal) {
 			this.ui.activeModal.clear();
@@ -20,7 +23,7 @@ export class UIModal extends UICollection {
 			text: "Submit",
 			key: "enter",
 			callback: () => {
-				if (params.callback) params.callback();
+				if (this.callback) this.callback();
 				this.clear();
 			}
 		}));
@@ -32,7 +35,7 @@ export class UIModal extends UICollection {
 			key: "escape", // have to add keyHandler ... 
 			title: "close modal",
 			callback: ev => {
-				if (params.onClear) params.onClear();
+				if (this.onClear) this.onClear();
 				this.clear();
 			}
 		}));
@@ -46,7 +49,7 @@ export class UIModal extends UICollection {
 		// drag
 		let isDragging = false;
 		this.el.addEventListener('mousedown', ev => {
-			if (ev.target === this.label.el || this.el) {
+			if (ev.target === this.label.el || ev.target === this.el) {
 				isDragging = true;
 			}
 		});

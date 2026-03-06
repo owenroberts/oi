@@ -6,7 +6,7 @@ export class UIText extends UIInput {
 		this.el.type = "text"; // set type?
 
 		// prob simplify this
-		this.placeholder = this.el.placeholder ?? params.placeholder ?? params.text ?? params.value ?? '';
+		this.placeholder = params.placeholder ?? params.text ?? params.value ?? '';
 		this.el.placeholder = this.placeholder;
 
 		this.el.addEventListener('focus', ev => {

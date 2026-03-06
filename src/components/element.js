@@ -6,7 +6,7 @@ export class UIElement {
 				document.createElement(params.tag || "div");
 
 		for (const prop in params.css) {
-			// this.setStyle(prop, params.css[prop]);
+			if (prop === "marginLeft") console.log(params.css);
 			this.el.style[prop] = params.css[prop];
 		}
 

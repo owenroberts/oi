@@ -23,8 +23,8 @@ export class UIToggle extends UIElement {
 	update(value, uiOnly) {
 		assert(typeof value === "boolean", `UIToggle expects boolean value, got ${value}`);
 		this.value = value ?? this.value;
-		if (this.callback) this.callback(this.value);
 		if (this.obj && this.ref) this.obj[this.ref] = this.value;
+		if (this.callback) this.callback(this.value);
 		this.display();
 	}
 
