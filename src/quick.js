@@ -43,8 +43,8 @@ export class QuickMenu {
 					this.ui.panels.quick.addUI(item);
 					return;
 				} else {
-					if (component.callback) {
-						component.callback();
+					if (params.callback) {
+						params.callback();
 					} else if (component.update) {
 						component.update(prompt('value:'));
 					}
@@ -78,6 +78,7 @@ export class QuickMenu {
 	}
 
 	displayKeys() {
+		console.log('display')
 		const m = new UIModal({
 			title: "Key Commands",
 			ui: this.ui,

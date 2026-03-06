@@ -29,7 +29,7 @@ export class WorkspacesPanel extends UIPanel {
 			const { text, url } = workspace;
 			this.addButton({
 				text,
-				callback: () => { 
+				callback: () => {
 					settings.loadWorkspace(url); 
 				}
 			});

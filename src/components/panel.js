@@ -55,7 +55,7 @@ export class UIPanel extends UICollection {
 
 	setup(settings) {
 		this.headlessToggle.update(settings.headless ?? false);
-		this.order.update(settings.order ?? 0);
+		this.order.update(settings.order || 0);
 	}
 
 	addBreak() {

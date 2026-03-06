@@ -1,3 +1,4 @@
+import { assert } from '../../../cool/cool.js';
 import { UICollection, UIDrag, UIButton, formatNumberInput } from '../oi.js';
 
 export class UINumberStep extends UICollection {
@@ -72,7 +73,7 @@ export class UINumberStep extends UICollection {
 
 		if (value === undefined || value === null || value === '') {
 			console.trace();
-			throw Error("no value entered");
+			assert(false, "no value entered");
 		} else {
 			value = +value;
 		}

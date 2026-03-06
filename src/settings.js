@@ -105,6 +105,7 @@ export class Settings {
 
 	// prob need better name for this ... 
 	loadSettings(settings) {
+		console.log(settings);
 		// this.loadLayout(settings.layout);
 		this.loadSections(settings.sections);
 		this.loadFaces(settings.faces); 
@@ -112,6 +113,8 @@ export class Settings {
 	}
 
 	loadWorkspace(url) {
+
+		console.log(url);
 
 		for (const k in this.ui.sections) {
 			this.ui.sections[k].panels.clear();

@@ -29,7 +29,6 @@ export class QuickPanel extends UIPanel {
 
 		this.addButton({ 
 			callback: () => {
-				console.log("keys");
 				this.quick.displayKeys();
 			}, 
 			text: "key commands",
