@@ -1,4 +1,4 @@
-import { UIText } from './Text.js';
+import { UIText } from './text.js';
 
 export class UIDrag extends UIText {
 	constructor(params) {
