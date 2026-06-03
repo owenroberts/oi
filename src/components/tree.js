@@ -1,4 +1,4 @@
-import { UICollection, UIElement, UIRow } from '../oi.js';
+import { UICollection, UIElement, UIRow } from '@b/oi';
 
 export class UITree extends UICollection {
 	constructor(params={}) {

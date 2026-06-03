@@ -1,4 +1,4 @@
-import { UIElement, UILabel } from '../oi.js';
+import { UIElement, UILabel } from '@b/oi';
 
 export class UICollection extends UIElement {
 	constructor(params) {

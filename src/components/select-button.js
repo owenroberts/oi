@@ -1,4 +1,4 @@
-import { UICollection, UISelect, UIButton } from '../oi.js';
+import { UICollection, UISelect, UIButton } from '@b/oi';
 
 export class UISelectButton extends UICollection {
 	constructor(params) {

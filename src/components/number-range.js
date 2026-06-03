@@ -1,4 +1,4 @@
-import { UICollection, UINumber, UIRange } from '../oi.js';
+import { UICollection, UINumber, UIRange } from '@b/oi';
 
 // update obj/ref
 export class UINumberRange extends UICollection {

@@ -1,5 +1,5 @@
-import { UIElement, UICollection } from '../oi.js';
-import { whichKeyMap } from '../../../cool/cool.js';
+import { UIElement, UICollection } from '@b/oi';
+import { whichKeyMap } from '@b/cool';
 
 export class UIInputSearch extends UICollection {
 	constructor(params) {

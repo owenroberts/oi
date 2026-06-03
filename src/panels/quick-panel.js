@@ -1,4 +1,4 @@
-import { UIPanel, UIModal, UIButton, UILabel } from '../oi.js';
+import { UIPanel, UIModal, UIButton, UILabel } from '@b/oi';
 
 export class QuickPanel extends UIPanel {
 	constructor(params) {

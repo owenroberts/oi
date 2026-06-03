@@ -1,4 +1,4 @@
-import { mobilecheck, whichKeyMap } from '../../cool/cool.js';
+import { mobilecheck, whichKeyMap } from '@b/cool';
 import { Settings } from './settings.js';
 import { QuickMenu } from './quick.js';
 import { UILabel, UIPanel, UIButton, UICollection, UISection } from './components.js';

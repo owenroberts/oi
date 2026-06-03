@@ -1,4 +1,4 @@
-import { UICollection, UIElement, UISelectButton, UILabel, UINumber, UINumberStep, UIToggleCheck, UIToggle, UIButton } from '../oi.js'; 
+import { UICollection, UIElement, UISelectButton, UILabel, UINumber, UINumberStep, UIToggleCheck, UIToggle, UIButton } from '@b/oi';
 
 export class UISection extends UICollection {
 	constructor(params) {

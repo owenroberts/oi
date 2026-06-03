@@ -1,4 +1,4 @@
-import { UIModal, UIButton, UILabel, UIInputSearch, UITree, UIRow } from './oi.js';
+import { UIModal, UIButton, UILabel, UIInputSearch, UITree, UIRow } from '@b/oi';
 
 /**
  * get ui refs and buttons

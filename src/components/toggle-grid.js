@@ -1,4 +1,4 @@
-import { UICollection, UIToggleCheck, UILabel, UIButton, } from '../oi.js';
+import { UICollection, UIToggleCheck, UILabel, UIButton, } from '@b/oi';
 
 export class UIToggleGrid extends UICollection {
 	constructor(params) {

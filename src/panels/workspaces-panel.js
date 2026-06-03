@@ -1,4 +1,4 @@
-import { UIPanel, UIButton, UILabel } from '../oi.js';
+import { UIPanel, UIButton, UILabel } from '@b/oi';
 
 export class WorkspacesPanel extends UIPanel {
 	constructor(params) {

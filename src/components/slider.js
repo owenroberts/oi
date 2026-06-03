@@ -1,4 +1,4 @@
-import { UIInput } from '../oi.js';
+import { UIInput } from '@b/oi';
 
 // udpate for obj/ref
 export class UISlider extends UIInput {

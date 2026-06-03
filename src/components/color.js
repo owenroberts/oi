@@ -1,4 +1,4 @@
-import { UIInput, UIButton, UICollection } from '../oi.js';
+import { UIInput, UIButton, UICollection } from '@b/oi';
 
 export class UIColor extends UIInput {
 	constructor(params) {

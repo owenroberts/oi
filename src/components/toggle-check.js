@@ -1,4 +1,4 @@
-import { UICollection, UIElement } from '../oi.js';
+import { UICollection, UIElement } from '@b/oi';
 
 export class UIToggleCheck extends UICollection {
 	constructor(params) {

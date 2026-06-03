@@ -1,4 +1,4 @@
-import { UIText, formatNumberInput } from '../oi.js';
+import { UIText, formatNumberInput } from '@b/oi';
 
 // needs update for obj/ref
 export class UINumber extends UIText {

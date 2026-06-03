@@ -1,5 +1,5 @@
-import { assert } from '../../../cool/cool.js';
-import { UIElement } from '../oi.js';
+import { assert } from '@b/cool';
+import { UIElement } from '@b/oi';
 
 export class UIToggle extends UIElement {
 	constructor(params) {

@@ -1,4 +1,4 @@
-import { UIButton } from '../oi.js';
+import { UIButton } from '@b/oi';
 
 export class UIDragButton extends UIButton {
 	constructor(params) {

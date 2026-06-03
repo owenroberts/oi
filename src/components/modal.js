@@ -1,4 +1,4 @@
-import { UIElement, UIButton, UILabel, UICollection } from '../oi.js';
+import { UIElement, UIButton, UILabel, UICollection } from '@b/oi';
 
 export class UIModal extends UICollection {
 	constructor(params) {

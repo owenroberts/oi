@@ -1,8 +1,10 @@
 {
-  "name": "oi",
+  "name": "@b/oi",
+  "type": "module",
+  "main": "src/oi.js",
+  
   "version": "1.0.0",
   "description": "owen's interface",
-  "main": "src/oi.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/owenroberts/oi.git"

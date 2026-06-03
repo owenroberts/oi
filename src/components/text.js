@@ -1,4 +1,4 @@
-import { UIInput } from '../oi.js';
+import { UIInput } from '@b/oi';
 
 export class UIText extends UIInput {
 	constructor(params) {

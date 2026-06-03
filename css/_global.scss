@@ -3,8 +3,9 @@
 	lines/animate/css/animate.scss
 	@use "../../../ui/css/_global" as *;
 */
-
 @use "_colors" as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
 
 * { 
 	box-sizing: border-box;
@@ -17,10 +18,10 @@ body::-webkit-scrollbar {
 }
 
 body {
-	--base-font-size: 11;
-	--quick-ref-font-size: 11;
+	--base-font-size: 12;
+	--quick-ref-font-size: 12;
 
-	font-family: Verdana, sans-serif;
+	font-family: "Atkinson Hyperlegible Next", Verdana, sans-serif;
 	margin: 0;
 	font-size: calc(var(--base-font-size) * 1px);
 	-webkit-user-select: none;
@@ -34,7 +35,7 @@ body.mobile { overflow: hidden; }
 select, input, button {
 	// color: $text-color;
 	font-size: inherit;
-	height: 1.4rem;
+	height: 1.5rem;
 }
 
 button:focus, 

@@ -1,4 +1,4 @@
-import { UICollection, UIDrag, UIButton } from '../oi.js';
+import { UICollection, UIDrag, UIButton } from '@b/oi';
 
 export class UIInputStep extends UICollection {
 	constructor(params) {

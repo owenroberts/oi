@@ -1,5 +1,5 @@
-import { map } from '../../../cool/cool.js';
-import { UICollection, UIButton, UINumberStep, UILabel, UIModal } from '../oi.js';
+import { map } from '@b/cool';
+import { UICollection, UIButton, UINumberStep, UILabel, UIModal } from '@b/oi';
 
 export class UIGraph extends UICollection {
 	constructor(params) {

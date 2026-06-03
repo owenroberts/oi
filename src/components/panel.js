@@ -1,4 +1,4 @@
-import { UILabel, UICollection, UIToggle, UIRow, UINumberStep, UIButton } from '../oi.js';
+import { UILabel, UICollection, UIToggle, UIRow, UINumberStep, UIButton } from '@b/oi';
 
 /**
  * panel for buttons and refs

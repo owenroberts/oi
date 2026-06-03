@@ -1,5 +1,5 @@
-import { assert } from '../../../cool/cool.js';
-import { UICollection, UIDrag, UIButton, formatNumberInput } from '../oi.js';
+import { assert } from '@b/cool';
+import { UICollection, UIDrag, UIButton, formatNumberInput } from '@b/oi';
 
 export class UINumberStep extends UICollection {
 	constructor(params) {
@@ -61,6 +61,10 @@ export class UINumberStep extends UICollection {
 				this.update(this.value + step);
 			}
 		}));
+
+		if (params.keyHandler) {
+			this.keyHandler = params.keyHandler;
+		}
 	}
 
 	keyHandler() {

@@ -1,4 +1,4 @@
-import { UICollection, UIDrag, UILabel } from '../oi.js';
+import { UICollection, UIDrag, UILabel } from '@b/oi';
 
 export class UIRange extends UICollection {
 	constructor(params) {
