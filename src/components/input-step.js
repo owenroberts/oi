@@ -71,7 +71,8 @@ export class UIInputStep extends UICollection {
 		this.textInput.value = this.options[this.index];
 	}
 
-	update() {
+	update(value) {
+		if (value) this.value = value;
 		this.textInput.value = this.options[this.index];
 		if (this.obj && this.ref) this.obj[this.ref] = this.options[this.index];
 		if (this.callback) this.callback(this.value);

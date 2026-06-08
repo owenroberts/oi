@@ -11,7 +11,7 @@ export class UIList extends UICollection {
 		this.callback = params.callback;
 
 		this.list = params.list ?? params.obj?.[params.ref] ?? [];
-		this.options = params.options ?? []; // maybe better default
+		// this.options = params.options ?? []; // maybe better default
 		this.itemClass = params.itemClass ?? UIInput;
 		if (params.class) this.addClass(params.class);
 
@@ -32,8 +32,8 @@ export class UIList extends UICollection {
 				text: '*',
 				class: 'middle',
 				callback: () => {
-					if (this.options.length === 0) return;
-					this.set([...this.options]);
+					if (this.list.length === 0) return;
+					this.set([...this.list]);
 					this.update();
 				}
 			}));
@@ -54,7 +54,7 @@ export class UIList extends UICollection {
 				text: '+',
 				class: 'right-end',
 				callback: () => {
-					this.addItem(this.options?.[0] ?? 0);
+					this.addItem(this.list?.[0] ?? 0);
 					this.update();
 				}
 			}));
@@ -94,7 +94,7 @@ export class UIList extends UICollection {
 	addItemUI(index, value) {
 		this.tree.add(new this.itemClass({
 			value: value,
-			options: this.options,
+			options: this.list,
 			callback: value => {
 				this.list[index] = value;
 				this.update();

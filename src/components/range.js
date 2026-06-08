@@ -10,8 +10,8 @@ export class UIRange extends UICollection {
 		this.callback = params.callback;
 		this.value = params.value ?? this.obj?.[this.ref] ?? 0;
 
-		this.min = params.min ?? params.range[0] ?? 0;
-		this.max = params.max ?? params.range[1] ?? 1;
+		this.min = params.min ?? params.range?.[0] ?? 0;
+		this.max = params.max ?? params.range?.[1] ?? 1;
 		this.step = params.step ?? (this.max > 1 ? 1 : 0.1);
 		this.total = this.max - this.min;
 
