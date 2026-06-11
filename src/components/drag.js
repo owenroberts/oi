@@ -48,6 +48,8 @@ export class UIDrag extends UIText {
 
 		this.el.addEventListener('mousedown', mouseDown);
 
-		if (params.value !== undefined) this.value = params.value;
+		if (params.value !== undefined) {
+			this.value = params.value;
+		}
 	}
 }

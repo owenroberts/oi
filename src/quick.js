@@ -78,7 +78,6 @@ export class QuickMenu {
 	}
 
 	displayKeys() {
-		console.log('display')
 		const m = new UIModal({
 			title: "Key Commands",
 			ui: this.ui,

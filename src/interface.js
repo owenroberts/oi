@@ -174,7 +174,6 @@ export class Interface {
 		
 		const type = params.type ?? this.getComponentType(params);
 		const id = params.id ?? params.ref;
-		
 		const component = new Components[type](params);
 		if (!params.noLabel) {
 			panel.add(new UILabel({ text: params.label ?? params.face ?? id }));
@@ -186,8 +185,7 @@ export class Interface {
 
 		// multiple faces? save by panel?
 		if (this.faces[params.face ?? id]) {
-			console.log("existing face", this.faces[params.face ?? id])
-			console.log("this face", params)
+			console.log("existing face", params.face, id, panel)
 		}
 
 		this.faces[params.face ?? id] = component; // if params.face?
