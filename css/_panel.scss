@@ -1,6 +1,6 @@
 @use "sass:color";
-@use "_colors" as *;
-@use "_mixins" as *;
+@use "colors" as *;
+@use "mixins" as *;
 
 .break { flex-basis: 100%; }
 .panel {
