@@ -11,7 +11,7 @@ export class UIList extends UICollection {
 		this.callback = params.callback;
 
 		this.list = params.list ?? params.obj?.[params.ref] ?? [];
-		// this.options = params.options ?? []; // maybe better default
+		this.options = params.options ?? []; // maybe better default
 		this.itemClass = params.itemClass ?? UIInput;
 		if (params.class) this.addClass(params.class);
 
@@ -94,7 +94,7 @@ export class UIList extends UICollection {
 	addItemUI(index, value) {
 		this.tree.add(new this.itemClass({
 			value: value,
-			options: this.list,
+			options: this.options,
 			callback: value => {
 				this.list[index] = value;
 				this.update();

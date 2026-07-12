@@ -85,16 +85,33 @@
 	header.ui-collection,
 	header {
 
-		
-
 		flex-wrap: nowrap;
 		flex-basis: 100%;
 
-		label {  font-size: 1.0625em; }
+		label {
+			font-weight: bold;
+		}
+
 		span, label { 
 			margin-top: 0; 
 			margin-right: 0.06125em;
 		}
+
+		.ui-collection label,
+		.ui-collection input,
+		.ui-collection button,
+		input,
+		button {
+			font-size: 0.5rem;
+			height: 1rem;
+		}
+
+		.ui-collection input,
+		input {
+			width: 1.25rem !important;
+		}
+
+
 
 		button.undock {
 			align-self: flex-start;
@@ -167,6 +184,7 @@
 				margin-left: auto;
 				margin-right: unset;
 				font-size: 10px;
+				font-style: italic;
 			}
 
 			button.headless {
