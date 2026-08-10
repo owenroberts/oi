@@ -59,13 +59,19 @@ export class UISelect extends UIElement {
 	}
 
 	setOptions(options) {
-		for (let i = 0; i < options.length; i++) {
-			const { value, text } = typeof options[i] === 'object' ?
-				options[i] : // wtf? -- this is confusing
-				{ value: options[i] } ;
-				// basically, if the optoins are all strings, make that into the value
-			if (!this.options.includes(value)) {
-				this.addOption(value, text);
+		if (typeof options === 'object') {
+			for (const opt in options) {
+				this.addOption(options[opt], opt);
+			}
+		} else {
+			for (let i = 0; i < options.length; i++) {
+				const { value, text } = typeof options[i] === 'object' ?
+					options[i] : // wtf? -- this is confusing
+					{ value: options[i] } ;
+					// basically, if the optoins are all strings, make that into the value
+				if (!this.options.includes(value)) {
+					this.addOption(value, text);
+				}
 			}
 		}
 	}

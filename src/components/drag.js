@@ -26,9 +26,14 @@ export class UIDrag extends UIText {
 			const delta = { x: ev.pageX - x, y: ev.pageY - y };
 			const dir = Math.abs(delta.x) > Math.abs(delta.y) ? 'x' : 'y';
 
+			let multiplier = 1;
+			if (ev.shiftKey) multiplier = 0.1;
+			if (ev.ctrlKey) multiplier = 10;
+
+
 			if (Math.abs(delta[dir]) > 10 && timer === 0) {
 				const m = dir === 'x' ? 1 : -1; // multiplier for x/y
-				params.onDrag(m * Math.sign(delta[dir]));
+				params.onDrag(m * Math.sign(delta[dir]) * multiplier);
 				timer = timeout;
 				x = ev.pageX;
 				y = ev.pageY;

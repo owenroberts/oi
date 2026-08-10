@@ -3,6 +3,9 @@ import { UICollection, UIElement, UIRow } from '@b/oi';
 export class UITree extends UICollection {
 	constructor(params={}) {
 		super({ ...params, tag: 'details' });
+		
+		this.ui = params.ui; // *** 
+
 		if (params.isOpen) this.el.open = true;
 		this.addClass('tree');
 		this.addClass('row');
@@ -51,5 +54,14 @@ export class UITree extends UICollection {
 
 	close() {
 		this.el.open = false;
+	}
+
+	// maybe use this in collection or panel too 
+	// non-ref value with label
+	// but get component type thing is very helpful ... 
+	addParam(label, params) {
+		const component = this.ui.addRef(this, { label, ...params, noRef: true, noRow: true }); // this is insane ... ***
+		this.addBreak();
+		return component;
 	}
 }

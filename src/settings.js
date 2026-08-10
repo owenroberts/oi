@@ -84,10 +84,10 @@ export class Settings {
 			});
 
 			if (this.appLoad) this.appLoad(settings);
+		} else if (this.workspaces.length > 0) {
+			this.loadWorkspace(this.workspaces[0].url);
 		} else {
-			if (this.workspaces.length > 0) {
-				this.loadWorkspace(this.workspaces[0].url);
-			}
+			this.loadSections();
 		}
 	}
 

@@ -1,4 +1,4 @@
-import { UILabel, UICollection, UIToggle, UIRow, UINumberStep, UIButton } from '@b/oi';
+import { UILabel, UICollection, UIToggle, UIRow, UINumberStep, UIButton, UITree } from '@b/oi';
 
 /**
  * panel for buttons and refs
@@ -14,7 +14,7 @@ export class UIPanel extends UICollection {
 	constructor(params) {
 		super({ ...params, id: `${params.id}-panel` });
 		
-		this.ui = params.ui;		
+		this.ui = params.ui;
 		this.id = params.id;
 		this.addClass("panel");
 		this.rows = [];
@@ -115,5 +115,19 @@ export class UIPanel extends UICollection {
 		if (k) this.children[k] = child;
 		row.append(child, k);
 		return child;
+	}
+
+	addTree(title) {
+		return this.add(new UITree({ title, ui: this.ui }));
+	}
+
+	clear() {
+		console.log('clear', this)
+		for (let i = this.childList.length - 1; i >= 0; i--) {
+			if (this.childList[i].el.tagName === "HEADER") continue;
+			this.remove(this.childList[i]);
+		}
+		// this.children = {};
+		// this.childList = [];
 	}
 }

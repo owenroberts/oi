@@ -183,9 +183,11 @@ export class Interface {
 			this.addKey(params.key, params, component);
 		}
 
+		if (params.noRef) return; // insane ***
+
 		// multiple faces? save by panel?
 		if (this.faces[params.face ?? id]) {
-			console.log("existing face", params.face, id, panel)
+			console.warn("existing face", params.face, id, panel)
 		}
 
 		this.faces[params.face ?? id] = component; // if params.face?
@@ -228,5 +230,9 @@ export class Interface {
 		for (let i = 0; i < buttons.length; i++) {
 			this.addButton(panel, { ...params, ...buttons[i] });
 		}
+	}
+
+	addParam(label, params) {
+
 	}
 }

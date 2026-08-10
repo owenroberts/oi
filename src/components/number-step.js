@@ -1,4 +1,4 @@
-import { assert } from '@b/cool';
+import { assert, getNumberPrecision } from '@b/cool';
 import { UICollection, UIDrag, UIButton, formatNumberInput } from '@b/oi';
 
 export class UINumberStep extends UICollection {
@@ -15,25 +15,37 @@ export class UINumberStep extends UICollection {
 
 		const step = +(params.step ?? 1);
 
-		if (params.hasOwnProperty('range')) {
+		this.precision = getNumberPrecision(step);
+
+		if (params.hasOwnProperty("range")) {
 			this.min = +params.range[0];
 			this.max = +params.range[1];
 		}
 
-		if (params.hasOwnProperty('min')) {
+		if (params.hasOwnProperty("min")) {
 			this.min = +(params.min);
 		}
 
-		if (params.hasOwnProperty('max')) {
+		if (params.hasOwnProperty("max")) {
 			this.max = +(params.max);
 		}
-		
-		// constrain range?
+
+		if (this.hasOwnProperty("min")) {
+			if (getNumberPrecision(this.min) > this.precision) {
+				this.precision = getNumberPrecision(this.min);
+			}
+		}
+
+		if (this.hasOwnProperty("max")) {
+			if (getNumberPrecision(this.max) > this.precision) {
+				this.precision = getNumberPrecision(this.max);
+			}
+		}
 		
 		this.numberInput = new UIDrag({
 			...params,
 			value: this.value,
-			class: 'middle',
+			class: "middle",
 			onDrag: value => {
 				this.update(this.value + step * value);
 			},
@@ -85,6 +97,10 @@ export class UINumberStep extends UICollection {
 
 		if (value < this.min) value = this.min;
 		if (value > this.max) value = this.max;
+
+		if (this.precision !== 0) {
+			value = value.toFixed(this.precision);
+		}
 		
 		this.value = formatNumberInput(value);
 		this.numberInput.value = this.value;
