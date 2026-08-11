@@ -33,8 +33,8 @@ export class UISelect extends UIElement {
 
 	update(value) {
 		this.value = value;
-		if (this.callback) this.callback(this.value);
 		if (this.obj && this.ref) this.obj[this.ref] = this.value;
+		if (this.callback) this.callback(this.value);
 	}
 
 	clearOptions() {

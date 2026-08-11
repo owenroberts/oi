@@ -70,8 +70,8 @@ export class UIList extends UICollection {
 	}
 
 	update() {
-		if (this.callback) this.callback(this.list);
 		if (this.obj && this.ref) this.obj[this.ref] = this.list;
+		if (this.callback) this.callback(this.list);
 	}
 
 	set(list) {

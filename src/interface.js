@@ -231,8 +231,4 @@ export class Interface {
 			this.addButton(panel, { ...params, ...buttons[i] });
 		}
 	}
-
-	addParam(label, params) {
-
-	}
 }

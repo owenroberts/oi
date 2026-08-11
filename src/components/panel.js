@@ -122,12 +122,9 @@ export class UIPanel extends UICollection {
 	}
 
 	clear() {
-		console.log('clear', this)
 		for (let i = this.childList.length - 1; i >= 0; i--) {
 			if (this.childList[i].el.tagName === "HEADER") continue;
 			this.remove(this.childList[i]);
 		}
-		// this.children = {};
-		// this.childList = [];
 	}
 }
