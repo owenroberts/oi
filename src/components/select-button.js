@@ -5,7 +5,6 @@ export class UISelectButton extends UICollection {
 		super(params);
 		
 		const callback = params.callback;
-
 		this.select = this.append(new UISelect({
 			options: params.options,
 			callback: () => {

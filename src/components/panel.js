@@ -15,7 +15,7 @@ export class UIPanel extends UICollection {
 		super({ ...params, id: `${params.id}-panel` });
 		
 		this.ui = params.ui;
-		this.id = params.id;
+		this.id = params.id; // wtf ***
 		this.addClass("panel");
 		this.rows = [];
 

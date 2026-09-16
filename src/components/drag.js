@@ -28,7 +28,7 @@ export class UIDrag extends UIText {
 
 			let multiplier = 1;
 			if (ev.shiftKey) multiplier = 0.1;
-			if (ev.ctrlKey) multiplier = 10;
+			if (ev.altKey) multiplier = 10;
 
 
 			if (Math.abs(delta[dir]) > 10 && timer === 0) {

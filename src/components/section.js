@@ -90,7 +90,6 @@ export class UISection extends UICollection {
 
 	addSelectorOptions(panelList) {
 		panelList.forEach(p => {
-			// const [option, label] = p;
 			this.selector.select.addOption(p, p);
 		});
 	}

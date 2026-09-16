@@ -151,11 +151,20 @@ export class Interface {
 	}
 
 	getComponentType(params) {
+
 		const value = params.value ?? params.obj[params.ref];
 
 		// options is either select or steppers
 		if (params.options) {
-			if (params.options?.[0] === "C_1") return "UIInputStep";
+			
+			// avoid enum error
+			if (params.options) {
+				if (Object.hasOwn(params.options, 0)) {
+					if (params.options[0] === "C_1") {
+						return "UIInputStep";
+					}
+				}
+			}
 			// if (typeof params.options[0] === "string") return "UISelect";
 			return "UISelect";
 		} else {

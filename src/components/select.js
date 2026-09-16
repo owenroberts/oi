@@ -59,7 +59,7 @@ export class UISelect extends UIElement {
 	}
 
 	setOptions(options) {
-		if (typeof options === 'object') {
+		if (typeof options === 'object' && !Array.isArray(options)) {
 			for (const opt in options) {
 				this.addOption(options[opt], opt);
 			}

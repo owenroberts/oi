@@ -13,9 +13,17 @@ export class UINumberStep extends UICollection {
 		// this.onChange = params.onChange;
 		this.value = params.value ?? this.obj[this.ref];
 
-		const step = +(params.step ?? 1);
+		let step = +(params.step ?? 1);
 
 		this.precision = getNumberPrecision(step);
+
+		if (getNumberPrecision(this.value) > 0) {
+			this.precision = Math.max(this.precision, getNumberPrecision(this.value));
+		}
+
+		while (getNumberPrecision(step) < this.precision) {
+			step *= 0.1;
+		}
 
 		if (params.hasOwnProperty("range")) {
 			this.min = +params.range[0];
@@ -32,16 +40,16 @@ export class UINumberStep extends UICollection {
 
 		if (this.hasOwnProperty("min")) {
 			if (getNumberPrecision(this.min) > this.precision) {
-				this.precision = getNumberPrecision(this.min);
+				this.precision = Math.max(this.precision, getNumberPrecision(this.value));
 			}
 		}
 
 		if (this.hasOwnProperty("max")) {
 			if (getNumberPrecision(this.max) > this.precision) {
-				this.precision = getNumberPrecision(this.max);
+				this.precision = Math.max(this.precision, getNumberPrecision(this.value));
 			}
 		}
-		
+
 		this.numberInput = new UIDrag({
 			...params,
 			value: this.value,
@@ -106,7 +114,7 @@ export class UINumberStep extends UICollection {
 		this.numberInput.value = this.value;
 
 		if (uiOnly) return;
-		
+
 		if (this.obj && this.ref) this.obj[this.ref] = this.value;
 		if (this.callback) this.callback(this.value);
 	}

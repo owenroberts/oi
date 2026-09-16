@@ -64,4 +64,19 @@ export class UITree extends UICollection {
 		this.addBreak();
 		return component;
 	}
+
+	/* not dry *** */
+	addRef(params) {
+		return this.ui.addRef(this, params);
+	}
+
+	addButton(params) {
+		return this.ui.addButton(this, params);
+	}
+
+	addRow(params={}) {
+		const row = new UIRow(params);
+		this.row = this.append(row, params.id);
+		return row;
+	}
 }
