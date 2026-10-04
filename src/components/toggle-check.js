@@ -14,7 +14,11 @@ export class UIToggleCheck extends UICollection {
 		}));
 
 		this.check.el.type = 'checkbox';
-		this.check.el.checked = params.isOn || params.value || this.obj[this.ref] || false;
+		if (this.obj && this.ref) {
+			this.check.el.checked = this.obj[this.ref];
+		}
+		this.check.el.checked = params.isOn || params.value || false;
+
 		this.check.el.addEventListener('change', ev => {
 			this.update(ev.target.checked);
 			this.check.el.blur();

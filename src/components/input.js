@@ -4,6 +4,8 @@ export class UIInput extends UIElement {
 	constructor(params) {
 		super({ ...params, tag: 'input' });
 
+		this.el.type = params.type ?? "text"; // set type?
+
 		this.obj = params.obj;
 		this.ref = params.ref;
 
@@ -16,6 +18,10 @@ export class UIInput extends UIElement {
 		}
 
 		this.callback = params.callback;
+	}
+
+	update(value) {
+		this.value = value;
 	}
 
 	get value() {

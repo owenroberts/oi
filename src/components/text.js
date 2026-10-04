@@ -3,7 +3,7 @@ import { UIInput } from '@b/oi';
 export class UIText extends UIInput {
 	constructor(params) {
 		super(params);
-		this.el.type = "text"; // set type?
+		this.el.type = params.type ?? "text"; // set type?
 
 		// prob simplify this
 		this.placeholder = params.placeholder ?? params.text ?? params.value ?? '';

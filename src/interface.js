@@ -21,7 +21,7 @@ export function formatNumberInput(value) {
 			try {
 				value = eval(value);
 			} catch(e) {
-				alert("Please enter a numerical value or mathematical expression.");
+				alert("please enter a numerical value or mathematical expression.");
 				return;
 			}
 		}

@@ -110,6 +110,11 @@ section header {
 		width: calc(calc(var(--base-font-size) * 3) * 1px);
 		text-align: right;
 	}
+
+	input[type=password] {
+		width: unset;
+		text-align: unset;
+	}
 	
 	input[type=range], 
 	input[type=color] {

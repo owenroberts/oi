@@ -63,11 +63,16 @@ export class UIInputStep extends UICollection {
 	}
 
 	set value(value) {
-		let index = this.options.indexOf(value);
-		if (index === -1) {
-			console.warn(`value ${value} not in options for ${this.ref}`);
+		let temp = this.options.indexOf(value);
+		if (temp === -1) {
+			// fix for typing c3 into note input, get C3 - idk if this will fuck up other things ...
+			temp = this.options.indexOf(value.toUpperCase());
+			if (temp === -1) {
+				console.warn(`value ${value} not in options for ${this.ref}`);
+				return;
+			}
 		}
-		this.index = index;
+		this.index = temp;
 		this.textInput.value = this.options[this.index];
 	}
 

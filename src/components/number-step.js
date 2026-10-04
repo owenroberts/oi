@@ -11,7 +11,7 @@ export class UINumberStep extends UICollection {
 		this.prompt = params.prompt;
 		this.callback = params.callback;
 		// this.onChange = params.onChange;
-		this.value = params.value ?? this.obj[this.ref];
+		this.value = +(params.value ?? this.obj[this.ref]);
 
 		let step = +(params.step ?? 1);
 
@@ -58,7 +58,14 @@ export class UINumberStep extends UICollection {
 				this.update(this.value + step * value);
 			},
 			callback: value => {
-				value = formatNumberInput(value);
+
+				value = +formatNumberInput(value);
+
+				// trying out - change precision on manually entered values
+				if (getNumberPrecision(value) > this.precision) {
+					this.precision = getNumberPrecision(value);
+				}
+
 				this.update(value);
 			}
 		});
@@ -92,6 +99,7 @@ export class UINumberStep extends UICollection {
 	}
 
 	update(value, uiOnly) {
+
 		if (value === undefined && this.prompt) {
 			value = prompt(this.prompt);
 		}
