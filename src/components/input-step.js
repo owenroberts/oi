@@ -39,6 +39,7 @@ export class UIInputStep extends UICollection {
 		this.add(new UIButton({
 			text: '▼',
 			class: 'middle',
+			noFocus: true,
 			callback: () => {
 				if (this.ref === "tonic") console.log(this)
 				if (this.index === 0) return; 
@@ -50,6 +51,7 @@ export class UIInputStep extends UICollection {
 		this.add(new UIButton({
 			text: '▲',
 			class: 'right-end',
+			noFocus: true,
 			callback: () => {
 				if (this.index === this.options.length - 1) return; 
 				this.index += 1;

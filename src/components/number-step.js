@@ -1,5 +1,5 @@
 import { assert, getNumberPrecision } from '@b/cool';
-import { UICollection, UIDrag, UIButton, formatNumberInput } from '@b/oi';
+import { UICollection, UIDrag, UIButton, formatNumberInput, UIElement } from '@b/oi';
 
 export class UINumberStep extends UICollection {
 	constructor(params) {
@@ -71,23 +71,27 @@ export class UINumberStep extends UICollection {
 		});
 
 		const stepDown = this.append(new UIButton({
-			text: '◀',
+			// text: '◀',
 			class: 'left-end',
+			noFocus: true,
 			callback: () => {
 				this.update(this.value - step);
 			}
 		}));
+		stepDown.add(new UIElement({ tag: "span", class: "left-arrow" }));
 
 		// number in between step buttons
 		this.append(this.numberInput);
 
 		const stepUp = this.append(new UIButton({
-			text: '▶',
+			// text: '▶',
 			class: 'right-end',
+			noFocus: true,
 			callback: () => {
 				this.update(this.value + step);
 			}
 		}));
+		stepUp.add(new UIElement({ tag: "span", class: "right-arrow" }));
 
 		if (params.keyHandler) {
 			this.keyHandler = params.keyHandler;

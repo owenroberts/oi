@@ -39,11 +39,35 @@ button {
 	}
 }
 
+.number-step button,
+.number-step input {
+	height: 1.5em;
+}
+
+
 .panel button,
 button {
 	&.left-end { @include left-end; }
 	&.middle { @include middle; }
 	&.right-end { @include right-end; }
+}
+
+span.left-arrow {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	background: black;
+	vertical-align: middle;
+	clip-path: polygon(100% 0, 0 50%, 100% 100%);
+}
+
+span.right-arrow {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	vertical-align: middle;
+	background: black;
+	clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 .panel .row .range-bg {
@@ -167,7 +191,7 @@ section header {
 
 		text-align: left;
 		vertical-align: bottom;
-		line-height: 1.6;
+		// line-height: 1.6;
 		
 		&:focus {
 			border: 1px solid $accent-color;

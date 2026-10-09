@@ -4,6 +4,9 @@ export class UIButton extends UIElement {
 	constructor(params) {
 		super({ ...params, tag: "button"});
 		if (params.buttonClass) this.addClass(params.buttonClass);
+		if (params.noFocus) {
+			this.el.tabIndex = -1;
+		}
 		
 		// this.callback = params.callback;
 		// this.obj = params.obj;

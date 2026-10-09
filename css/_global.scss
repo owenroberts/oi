@@ -42,7 +42,8 @@ select, input, button {
 
 button:focus, 
 select:focus { 
-	outline: none; 
+	outline: none;
+	background: aliceblue;
 }
 
 select {
