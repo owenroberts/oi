@@ -14,7 +14,7 @@ button {
 
 	display: inline-block;
 	background-color: $ui-color;
-	padding: 0 0.5em;
+	padding: 0 0.4em;
 	border-radius: 3px;
 	
 	&.progress:hover,
@@ -41,9 +41,8 @@ button {
 
 .number-step button,
 .number-step input {
-	height: 1.5em;
+	// height: 1.5em;
 }
-
 
 .panel button,
 button {
@@ -52,22 +51,22 @@ button {
 	&.right-end { @include right-end; }
 }
 
-span.left-arrow {
+@mixin arrow {
 	display: inline-block;
-	width: 1em;
-	height: 1em;
-	background: black;
+	width: 0.8em;
+	height: 0.8em;
 	vertical-align: middle;
-	clip-path: polygon(100% 0, 0 50%, 100% 100%);
+	background: black;
+}
+
+span.left-arrow {
+	@include arrow;
+	clip-path: polygon(100% 0, 20% 50%, 100% 100%);
 }
 
 span.right-arrow {
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	vertical-align: middle;
-	background: black;
-	clip-path: polygon(0 0, 100% 50%, 0 100%);
+	@include arrow;
+	clip-path: polygon(0 0, 80% 50%, 0 100%);
 }
 
 .panel .row .range-bg {
@@ -114,8 +113,8 @@ span.right-arrow {
 section header {
 
 	button {
-		padding: 0 0.5em;
-		margin-bottom: 0;
+		padding: 0 0.4em;
+		// margin-bottom: 0;
 	}
 		
 	span, 
@@ -191,7 +190,7 @@ section header {
 
 		text-align: left;
 		vertical-align: bottom;
-		// line-height: 1.6;
+		line-height: 1.6;
 		
 		&:focus {
 			border: 1px solid $accent-color;
@@ -223,11 +222,11 @@ section header {
 
 	input[type=checkbox].toggle-check {
 		margin: 0;
-		width: auto;
+		// width: auto;
 		vertical-align: text-bottom;
-		zoom: 1.25;
+		// zoom: 1.25;
 		// height: 1em;
-		margin-right: 0.25em;
+		// margin-right: 0.25em;
 	}
 
 	input[type=file] {

@@ -1,36 +1,37 @@
 import { UICollection, UIElement } from '@b/oi';
 
-export class UIToggleCheck extends UICollection {
+export class UIToggleCheck extends UIElement {
 	constructor(params) {
-		super(params);
+		super({ ...params, tag: "input" });
+		this.addClass("toggle-check");
+		this.el.type = 'checkbox';
 		
 		this.obj = params.obj;
 		this.ref = params.ref;
 		this.callback = params.callback;
 
-		this.check = this.add(new UIElement({
-			tag: 'input',
-			class: 'toggle-check'
-		}));
+		// this.check = this.add(new UIElement({
+		// 	tag: 'input',
+		// 	class: 'toggle-check'
+		// }));
 
-		this.check.el.type = 'checkbox';
 		if (this.obj && this.ref) {
-			this.check.el.checked = this.obj[this.ref];
+			this.el.checked = this.obj[this.ref];
 		}
-		this.check.el.checked = params.isOn || params.value || false;
+		this.el.checked = params.isOn || params.value || false;
 
-		this.check.el.addEventListener('change', ev => {
+		this.el.addEventListener('change', ev => {
 			this.update(ev.target.checked);
-			this.check.el.blur();
+			this.el.blur();
 		});
 	}
 
 	get value() {
-		return this.check.el.checked;
+		return this.el.checked;
 	}
 
 	set value(value) {
-		this.check.el.checked = value;
+		this.el.checked = value;
 	}
 
 	keyHandler(value) {

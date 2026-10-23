@@ -69,7 +69,12 @@ export class UIList extends UICollection {
 		this.addItemUIs();
 	}
 
-	update() {
+	update(value, uiOnly) {
+		if (Array.isArray(value)) {
+			this.set(value);
+		}
+		if (uiOnly) return;
+
 		if (this.obj && this.ref) this.obj[this.ref] = this.list;
 		if (this.callback) this.callback(this.list);
 	}

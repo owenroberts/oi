@@ -44,6 +44,7 @@ export class Interface {
 		this.mousePosition = { x: 0, y: 0 };
 
 		this.container = new UICollection({ id: 'container' });
+		this.isVisible = true;
 		this.toolTip = new UILabel({ id: 'tool-tip' });
 		this.container.append(this.toolTip);
 
@@ -57,6 +58,12 @@ export class Interface {
 		/* key commands */
 		document.addEventListener("keydown", ev => {
 			this.keyDown(ev);
+
+			if (whichKeyMap[ev.which] === "h") {
+				this.isVisible = !this.isVisible
+				this.container.setStyle("visibility", this.isVisible ? "unset" : "hidden");
+			}
+
 		}, false);
 		
 		// track mouse for modal
@@ -66,6 +73,7 @@ export class Interface {
 		}, false);
 
 		this.activeModal = undefined; // track existing modal
+
 	}
 
 	keyDown(ev) {

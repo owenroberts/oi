@@ -41,7 +41,6 @@ export class UIInputStep extends UICollection {
 			class: 'middle',
 			noFocus: true,
 			callback: () => {
-				if (this.ref === "tonic") console.log(this)
 				if (this.index === 0) return; 
 				this.index -= 1;
 				this.update();

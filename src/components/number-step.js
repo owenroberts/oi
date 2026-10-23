@@ -11,7 +11,7 @@ export class UINumberStep extends UICollection {
 		this.prompt = params.prompt;
 		this.callback = params.callback;
 		// this.onChange = params.onChange;
-		this.value = +(params.value ?? this.obj[this.ref]);
+		this.value = +(params.value ?? this.obj[this.ref] ?? 0);
 
 		let step = +(params.step ?? 1);
 
