@@ -1,0 +1,26 @@
+$atkinson-next-faces: (
+	(200, normal, "AtkinsonHyperlegibleNext-ExtraLight.otf"),
+	(200, italic, "AtkinsonHyperlegibleNext-ExtraLightItalic.otf"),
+	(300, normal, "AtkinsonHyperlegibleNext-Light.otf"),
+	(300, italic, "AtkinsonHyperlegibleNext-LightItalic.otf"),
+	(400, normal, "AtkinsonHyperlegibleNext-Regular.otf"),
+	(400, italic, "AtkinsonHyperlegibleNext-RegularItalic.otf"),
+	(500, normal, "AtkinsonHyperlegibleNext-Medium.otf"),
+	(500, italic, "AtkinsonHyperlegibleNext-MediumItalic.otf"),
+	(600, normal, "AtkinsonHyperlegibleNext-SemiBold.otf"),
+	(600, italic, "AtkinsonHyperlegibleNext-SemiBoldItalic.otf"),
+	(700, normal, "AtkinsonHyperlegibleNext-Bold.otf"),
+	(700, italic, "AtkinsonHyperlegibleNext-BoldItalic.otf"),
+	(800, normal, "AtkinsonHyperlegibleNext-ExtraBold.otf"),
+	(800, italic, "AtkinsonHyperlegibleNext-ExtraBoldItalic.otf")
+);
+
+@each $weight, $style, $file in $atkinson-next-faces {
+	@font-face {
+		font-family: "Atkinson";
+		src: url("./#{$file}") format("opentype");
+		font-weight: $weight;
+		font-style: $style;
+		font-display: swap;
+	}
+}

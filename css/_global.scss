@@ -4,9 +4,8 @@
 	@use "../../../ui/css/_global" as *;
 */
 
+@use "fonts/atkinson" as *;
 @use "colors" as *;
-
-@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&display=swap');
 
 * { 
 	box-sizing: border-box;
@@ -22,7 +21,7 @@ body {
 	--base-font-size: 12;
 	--quick-ref-font-size: 12;
 
-	font-family: "Atkinson Hyperlegible Next", Verdana, sans-serif;
+	font-family: "Atkinson", Verdana, sans-serif;
 	margin: 0;
 	font-size: calc(var(--base-font-size) * 1px);
 	-webkit-user-select: none;
@@ -37,7 +36,7 @@ select, input, button {
 	// color: $text-color;
 	font-size: inherit;
 	height: 2em;
-	font-family: "Atkinson Hyperlegible Next", sans-serif;
+	font-family: "Atkinson", sans-serif;
 }
 
 button:focus, 
